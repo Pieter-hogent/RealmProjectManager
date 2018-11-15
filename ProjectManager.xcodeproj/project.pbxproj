@@ -14,6 +14,14 @@
 		F52761532198A2F000B21BDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F52761512198A2F000B21BDE /* LaunchScreen.storyboard */; };
 		F527615E2198A2F000B21BDE /* ProjectManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527615D2198A2F000B21BDE /* ProjectManagerTests.swift */; };
 		F52761692198A2F000B21BDE /* ProjectManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52761682198A2F000B21BDE /* ProjectManagerUITests.swift */; };
+		F52761782198A47F00B21BDE /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52761772198A47F00B21BDE /* ProjectsViewController.swift */; };
+		F527617B2198A58200B21BDE /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527617A2198A58200B21BDE /* ProjectCell.swift */; };
+		F527617E2198A64D00B21BDE /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527617D2198A64D00B21BDE /* Project.swift */; };
+		F52761802198A6C700B21BDE /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F527617F2198A6C700B21BDE /* Task.swift */; };
+		F52761822198BCEC00B21BDE /* ProjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52761812198BCEC00B21BDE /* ProjectDetailViewController.swift */; };
+		F52761842199969500B21BDE /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52761832199969500B21BDE /* TaskCell.swift */; };
+		F590BE9F219C354400B89D36 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F590BE9E219C354400B89D36 /* AddProjectViewController.swift */; };
+		F590BEA3219D840C00B89D36 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F590BEA2219D840C00B89D36 /* AddTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +55,14 @@
 		F52761642198A2F000B21BDE /* ProjectManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F52761682198A2F000B21BDE /* ProjectManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManagerUITests.swift; sourceTree = "<group>"; };
 		F527616A2198A2F000B21BDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F52761772198A47F00B21BDE /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
+		F527617A2198A58200B21BDE /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
+		F527617D2198A64D00B21BDE /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		F527617F2198A6C700B21BDE /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		F52761812198BCEC00B21BDE /* ProjectDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewController.swift; sourceTree = "<group>"; };
+		F52761832199969500B21BDE /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		F590BE9E219C354400B89D36 /* AddProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
+		F590BEA2219D840C00B89D36 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +113,9 @@
 		F52761472198A2EF00B21BDE /* ProjectManager */ = {
 			isa = PBXGroup;
 			children = (
+				F527617C2198A64200B21BDE /* Model */,
+				F52761792198A55B00B21BDE /* Views */,
+				F52761762198A45C00B21BDE /* ViewControllers */,
 				F52761482198A2EF00B21BDE /* AppDelegate.swift */,
 				F527614A2198A2EF00B21BDE /* ViewController.swift */,
 				F527614C2198A2EF00B21BDE /* Main.storyboard */,
@@ -123,6 +142,35 @@
 				F527616A2198A2F000B21BDE /* Info.plist */,
 			);
 			path = ProjectManagerUITests;
+			sourceTree = "<group>";
+		};
+		F52761762198A45C00B21BDE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F52761772198A47F00B21BDE /* ProjectsViewController.swift */,
+				F52761812198BCEC00B21BDE /* ProjectDetailViewController.swift */,
+				F590BE9E219C354400B89D36 /* AddProjectViewController.swift */,
+				F590BEA2219D840C00B89D36 /* AddTaskViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F52761792198A55B00B21BDE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F527617A2198A58200B21BDE /* ProjectCell.swift */,
+				F52761832199969500B21BDE /* TaskCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F527617C2198A64200B21BDE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F527617D2198A64D00B21BDE /* Project.swift */,
+				F527617F2198A6C700B21BDE /* Task.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +304,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F52761782198A47F00B21BDE /* ProjectsViewController.swift in Sources */,
 				F527614B2198A2EF00B21BDE /* ViewController.swift in Sources */,
 				F52761492198A2EF00B21BDE /* AppDelegate.swift in Sources */,
+				F52761822198BCEC00B21BDE /* ProjectDetailViewController.swift in Sources */,
+				F52761842199969500B21BDE /* TaskCell.swift in Sources */,
+				F527617E2198A64D00B21BDE /* Project.swift in Sources */,
+				F590BE9F219C354400B89D36 /* AddProjectViewController.swift in Sources */,
+				F52761802198A6C700B21BDE /* Task.swift in Sources */,
+				F527617B2198A58200B21BDE /* ProjectCell.swift in Sources */,
+				F590BEA3219D840C00B89D36 /* AddTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
