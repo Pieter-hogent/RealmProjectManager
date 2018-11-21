@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Task
+class Task : Object
 {
     enum Status: String {
         case new = "New"
@@ -18,10 +19,19 @@ class Task
         static let values: [Status] = [.new, .inProgress, .completed]
     }
     
-    var name = ""
-    var status: Status = .new
+    @objc dynamic var name = ""
+    @objc dynamic var statusRaw = ""
     
-    init(name: String, status: Status = .new) {
+    var status: Status {
+        get {
+            return Status(rawValue: statusRaw) ?? .new
+        } set {
+            statusRaw = newValue.rawValue
+        }
+    }
+    
+    convenience init(name: String, status: Status = .new) {
+        self.init()
         self.name = name
         self.status = status
     }
@@ -36,4 +46,9 @@ class Task
             status = .completed
         }
     }
+    
+    override var description: String {
+        return "\(name) \(status)"
+    }
+    
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ProjectDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -21,7 +22,9 @@ class ProjectDetailViewController: UIViewController {
     @IBAction func unwindFromAddTask(_ segue: UIStoryboardSegue) {
         if let addTaskViewController = segue.source as? AddTaskViewController {
             let newTask = addTaskViewController.task!
-            self.project.tasks.append(newTask)
+            try! Realm().write {
+                project.tasks.append(newTask)
+            }
             self.tableView.insertRows(at: [IndexPath(row: self.project.numberOfTasks(for: newTask.status) - 1,
                                                      section: Task.Status.values.index(of: newTask.status)!)],
                                       with: .automatic)
@@ -56,8 +59,12 @@ extension ProjectDetailViewController : UITableViewDelegate {
     {
         let modifyAction = UIContextualAction(style: .normal, title:  "Advance", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             let task = self.project.tasks(for: Task.Status.values[indexPath.section])[indexPath.row]
-            task.advance()
-            self.tableView.moveRow(at: indexPath, to: IndexPath(row: 0, section: Task.Status.values.index(of: task.status)!))
+            try! Realm().write {
+                task.advance()
+                let newIndexPath = IndexPath(row: 0, section: Task.Status.values.index(of: task.status)!)
+                self.tableView.moveRow(at: indexPath, to: newIndexPath)
+            }
+           
             success(true)
         })
         modifyAction.backgroundColor = UIColor(red: 48/255.0, green: 193/255.0, blue: 204/255.0, alpha: 1.0)

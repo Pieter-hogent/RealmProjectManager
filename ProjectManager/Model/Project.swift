@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import RealmSwift
 
-class Project {
-    var name = ""
-    var tasks = Array<Task>();
+class Project : Object {
+    @objc dynamic var name = ""
+    var tasks = List<Task>();
     
-    init(name: String) {
+    convenience init(name: String) {
+        self.init()
         self.name = name;
     }
     

@@ -6,19 +6,17 @@
 //  Copyright © 2018 Pieter Van Der Helst. All rights reserved.
 //
 
+import RealmSwift
 import UIKit
 
 class ProjectsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var projects: Array<Project>!
+    var projects: Results<Project>!
     
     override func viewDidLoad() {
-        projects = Array<Project>()
-        let project = Project(name: "first project")
-        project.tasks.append(Task(name: "started", status: Task.Status.new))
-        projects.append(project)
-    }
+        projects = try! Realm().objects(Project.self)
+   }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
@@ -34,7 +32,10 @@ class ProjectsViewController: UIViewController {
     
     @IBAction func unwindFromAddProject(_ segue: UIStoryboardSegue) {
         if let addProjectViewController = segue.source as? AddProjectViewController {
-            self.projects.append(addProjectViewController.project!)
+            let realm = try! Realm()
+            try! realm.write {
+                realm.add(addProjectViewController.project!)
+            }
             self.tableView.insertRows(at: [IndexPath(row: projects.count - 1, section: 0)], with: .automatic)
         }
     }

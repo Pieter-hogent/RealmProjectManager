@@ -24,7 +24,7 @@ class AddTaskViewController: UITableViewController {
             print("ERROR unwinding without name set")
             return
         }
-        self.task = Task(name: nameField.text!, status: Task.Status.values[statusField.selectedRow(inComponent: 0)])
+        self.task = Task(name: projectName, status: Task.Status.values[statusField.selectedRow(inComponent: 0)])
     }
 }
 
