@@ -6,7 +6,7 @@ target 'ProjectManager' do
   use_frameworks!
 
   # Pods for ProjectManager
-  pod 'RealmSwift'
+  pod 'RealmSwift', '~> 4.1.1' 
 
   target 'ProjectManagerTests' do
     inherit! :search_paths
